@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="XAMLSimpleTableSamples.Universal.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XAMLSimpleTableSamples.Universal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vms="using:XAMLSimpleTableSamples.Universal.ViewModels"
+    xmlns:tbl="using:XAMLSimpleTable"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <vms:MainPageViewModel />
+    </Page.DataContext>
+
+    <Grid Background="White">
+
+        <tbl:SimpleTable ColumnSource="{Binding Columns}" 
+                         RowsSource="{Binding Data}"
+                         Width="600"
+                         VerticalAlignment="Center"
+                         Margin="10">
+            <tbl:SimpleTable.FirstHeaderCellTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" Foreground="Black" FontWeight="Bold" Margin="5" />
+                    </Grid>
+                </DataTemplate>
+            </tbl:SimpleTable.FirstHeaderCellTemplate>
+            <tbl:SimpleTable.HeaderCellTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" Foreground="Black" Margin="5" />
+                        <Rectangle Fill="Gray" Width="1" HorizontalAlignment="Left" />
+                    </Grid>
+                </DataTemplate>
+            </tbl:SimpleTable.HeaderCellTemplate>
+            <tbl:SimpleTable.FirstCellTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" Foreground="Black" FontWeight="Bold" Margin="5"  />
+                        <Rectangle Fill="Gray" Height="1" VerticalAlignment="Top" />
+                    </Grid>
+                </DataTemplate>
+            </tbl:SimpleTable.FirstCellTemplate>
+            <tbl:SimpleTable.CellTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" Foreground="Black" Margin="5"  />
+                        <Rectangle Fill="Gray" Width="1" HorizontalAlignment="Left" />
+                        <Rectangle Fill="Gray" Height="1" VerticalAlignment="Top" />
+                    </Grid>
+                </DataTemplate>
+            </tbl:SimpleTable.CellTemplate>
+        </tbl:SimpleTable>
+
+    </Grid>
+</Page>
